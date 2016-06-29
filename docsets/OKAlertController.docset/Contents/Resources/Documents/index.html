@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OKAlertController  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="OKAlertController  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">OKAlertController Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/OlehKulykov/OKAlertController"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Folehkulykov%2Egithub%2Eio%2Fdocsets%2FOKAlertController%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">OKAlertController Reference</a>
+        <img id="carat" src="img/carat.png" />
+        OKAlertController  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/OKAlertController.html">OKAlertController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/MyFont.html">MyFont</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:V17OKAlertController8MyColors">MyColors</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p><a href="http://cocoapods.org/pods/OKAlertController"><img src="https://img.shields.io/cocoapods/p/OKAlertController.svg?style=flat" alt="Platform"></a>
+<a href="http://cocoapods.org/pods/OKAlertController"><img src="https://img.shields.io/cocoapods/v/OKAlertController.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/OKAlertController"><img src="https://img.shields.io/cocoapods/l/OKAlertController.svg?style=flat" alt="License"></a>
+<a href="https://travis-ci.org/OlehKulykov/OKAlertController"><img src="http://img.shields.io/travis/OlehKulykov/OKAlertController.svg?style=flat" alt="CI Status"></a>
+<a href="http://olehkulykov.github.io/OKAlertController"><img src="https://img.shields.io/badge/online%20documentation-generated-brightgreen.svg" alt="OnlineDocumentation Status"></a></p>
+<a href='#okalertcontroller' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='okalertcontroller'>OKAlertController</h1>
+
+<p>Customizable UIAlertController controller.
+No custom UI or behavior - used standart UIAlertController with updated UI.</p>
+
+<p><img src="Resources/ScreenShot1.png" alt="Alt text"></p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<a href='#create-customize-and-show-present' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='create-customize-and-show-present'>Create, customize and show/present</h3>
+<pre class="highlight swift"><code><span class="c1">// Create alert controller as usual</span>
+<span class="k">let</span> <span class="nv">alert</span> <span class="o">=</span> <span class="kt">OKAlertController</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Some title"</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"Some message"</span><span class="p">)</span>
+
+<span class="c1">// Fill with reqired actions</span>
+<span class="n">alert</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="s">"Some option"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+  <span class="c1">// Process action</span>
+<span class="p">}</span>
+
+<span class="n">alert</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="s">"Cancel"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Cancel</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="c1">// Ignore cancel action handler</span>
+
+<span class="c1">// Setup alert controller to conform design</span>
+<span class="n">alert</span><span class="o">.</span><span class="n">titleFont</span> <span class="o">=</span> <span class="o">...</span> <span class="c1">/// &lt;- Title text font</span>
+<span class="n">alert</span><span class="o">.</span><span class="n">titleColor</span> <span class="o">=</span> <span class="o">...</span> <span class="c1">/// &lt;- Title text color</span>
+<span class="o">...</span> <span class="c1">/// &lt;- Any other customisation</span>
+
+<span class="n">alert</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">fromController</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre>
+
+<p><strong>It&rsquo;s recommended to create extension or subsclass of the alert controller, once setup style to conform the design and reuse in any part of your project.</strong></p>
+
+<p>See below example:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">OKAlertController</span> <span class="p">{</span>
+  <span class="c1">// For instance your style called "Minimalistic", just create function to show this style of alert</span>
+  <span class="kd">func</span> <span class="nf">showMinimalistic</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Get root UIViewController, or you could use any other</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">rootController</span> <span class="o">=</span> <span class="kt">UIApplication</span><span class="o">.</span><span class="nf">sharedApplication</span><span class="p">()</span><span class="o">.</span><span class="n">delegate</span><span class="p">?</span><span class="o">.</span><span class="n">window</span><span class="p">??</span><span class="o">.</span><span class="n">rootViewController</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Setup style before show</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">white</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mf">0.79</span><span class="p">)</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">whiteColor</span><span class="p">()</span>
+    <span class="o">...</span> <span class="c1">/// &lt;- Any other customisation</span>
+
+    <span class="c1">// Finaly show alert controller</span>
+    <span class="nf">show</span><span class="p">(</span><span class="nv">fromController</span><span class="p">:</span> <span class="n">rootController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Somewhere in the code</span>
+<span class="k">let</span> <span class="nv">alert</span> <span class="o">=</span> <span class="kt">OKAlertController</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Some title"</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"Some message"</span><span class="p">)</span>
+<span class="o">...</span> <span class="c1">/// &lt;- Fill with actions</span>
+<span class="c1">// Show "Minimalistic" style provided by bellow extension</span>
+<span class="n">alert</span><span class="o">.</span><span class="nf">showMinimalistic</span><span class="p">()</span>
+
+</code></pre>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>Minimum iOS: 8.0</li>
+<li>Works for both iPhone and iPad</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+
+<p>OKAlertController is available through <a href="http://cocoapods.org">CocoaPods</a>. To install it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"OKAlertController"</span>
+</code></pre>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright &copy; 2016 Oleh Kulykov <a href="mailto:info@resident.name">info@resident.name</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the <q>Software</q>), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED <q>AS IS</q>, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://www.resident.name" target="_blank" rel="external">Oleh Kulykov</a>. All rights reserved. (Last updated: 2016-06-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

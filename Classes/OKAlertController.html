@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OKAlertController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/OKAlertController" class="dashAnchor"></a>
+    <a title="OKAlertController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">OKAlertController Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/OlehKulykov/OKAlertController"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Folehkulykov%2Egithub%2Eio%2Fdocsets%2FOKAlertController%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">OKAlertController Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        OKAlertController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/OKAlertController.html">OKAlertController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/MyFont.html">MyFont</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V17OKAlertController8MyColors">MyColors</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>OKAlertController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">OKAlertController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Wraps and manages standart <code>UIAlertController</code> look.
+First ctreate controller, fill with actions and only than make customiztion before show.
+It&rsquo;s recommended to create extension for you application, override show function and
+before show make you application specific customization.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    All variables have default value as <code>nil</code>, which means this parameter will not be applied/changed.
+
+</div>
+
+<p>Example:</p>
+
+<pre class="highlight swift"><code><span class="c1">// Create alert.</span>
+<span class="k">let</span> <span class="nv">alert</span> <span class="o">=</span> <span class="kt">OKAlertController</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Some title"</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"Alert message"</span><span class="p">)</span>
+
+<span class="c1">// Add actions</span>
+<span class="n">alert</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="s">"Ut enim ad minim veniam"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+
+<span class="p">}</span>
+
+<span class="n">alert</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="s">"Cancel"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Cancel</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+
+<span class="p">}</span>
+
+<span class="c1">//TODO: setup controller with custom colors, fonts, etc.</span>
+<span class="n">alert</span><span class="o">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">white</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mf">0.79</span><span class="p">)</span>
+<span class="n">alert</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">whiteColor</span><span class="p">()</span>
+
+<span class="c1">// Finaly show controller</span>
+<span class="n">alert</span><span class="o">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">fromController</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController10titleColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/titleColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController10titleColorGSqCSo7UIColor_">titleColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert title text color. 
+The default value is <code>nil</code> - standart title text color.
+Provide <code>nil</code> to remove/ignore title text color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">titleColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController9titleFontGSqCSo6UIFont_"></a>
+                    <a name="//apple_ref/swift/Property/titleFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController9titleFontGSqCSo6UIFont_">titleFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert title font.
+The default value is <code>nil</code> - standart title font.
+Provide <code>nil</code> to remove/ignore title font modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">titleFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController12messageColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/messageColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController12messageColorGSqCSo7UIColor_">messageColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert message text color.
+The default value is <code>nil</code> - standart message text color.
+Provide <code>nil</code> to remove/ignore message text color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">messageColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController11messageFontGSqCSo6UIFont_"></a>
+                    <a name="//apple_ref/swift/Property/messageFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController11messageFontGSqCSo6UIFont_">messageFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert message font.
+The default value is <code>nil</code> - standart message font.
+Provide <code>nil</code> to remove/ignore message font modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">messageFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController15backgroundColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/backgroundColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController15backgroundColorGSqCSo7UIColor_">backgroundColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert background window color.
+The default value is <code>nil</code> - standart background window color.
+Provide <code>nil</code> to remove/ignore background window color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">backgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController21allDefaultActionsFontGSqCSo6UIFont_"></a>
+                    <a name="//apple_ref/swift/Property/allDefaultActionsFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController21allDefaultActionsFontGSqCSo6UIFont_">allDefaultActionsFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert default actions text font.
+The default value is <code>nil</code> - standart default actions text font.
+Provide <code>nil</code> to remove/ignore default actions text font modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allDefaultActionsFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController22allDefaultActionsColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/allDefaultActionsColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController22allDefaultActionsColorGSqCSo7UIColor_">allDefaultActionsColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert default actions text color.
+The default value is <code>nil</code> - standart default actions text color.
+Provide <code>nil</code> to remove/ignore default actions text color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allDefaultActionsColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController20allCancelActionsFontGSqCSo6UIFont_"></a>
+                    <a name="//apple_ref/swift/Property/allCancelActionsFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController20allCancelActionsFontGSqCSo6UIFont_">allCancelActionsFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert cancel actions text font.
+The default value is <code>nil</code> - standart cancel actions text font.
+Provide <code>nil</code> to remove/ignore cancel actions text font modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allCancelActionsFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController21allCancelActionsColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/allCancelActionsColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController21allCancelActionsColorGSqCSo7UIColor_">allCancelActionsColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert cancel actions text color.
+The default value is <code>nil</code> - standart cancel actions text color.
+Provide <code>nil</code> to remove/ignore cancel actions color color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allCancelActionsColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController25allDestructiveActionsFontGSqCSo6UIFont_"></a>
+                    <a name="//apple_ref/swift/Property/allDestructiveActionsFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController25allDestructiveActionsFontGSqCSo6UIFont_">allDestructiveActionsFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert destructive actions text font.
+The default value is <code>nil</code> - standart destructive actions text font.
+Provide <code>nil</code> to remove/ignore destructive actions text font modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allDestructiveActionsFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController26allDestructiveActionsColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/allDestructiveActionsColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController26allDestructiveActionsColorGSqCSo7UIColor_">allDestructiveActionsColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert destructive actions text color.
+The default value is <code>nil</code> - standart destructive actions text color.
+Provide <code>nil</code> to remove/ignore destructive actions text color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allDestructiveActionsColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController11shadowColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/shadowColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController11shadowColorGSqCSo7UIColor_">shadowColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert shadow color.
+The default value is <code>nil</code> - standart shadow color.
+Provide <code>nil</code> to remove/ignore destructive shadow color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">shadowColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController11borderColorGSqCSo7UIColor_"></a>
+                    <a name="//apple_ref/swift/Property/borderColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController11borderColorGSqCSo7UIColor_">borderColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert window border color.
+The default value is <code>nil</code> - standart window border color.
+Provide <code>nil</code> to remove/ignore destructive window border color modification and use standart.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17OKAlertController17OKAlertController11borderWidthV12CoreGraphics7CGFloat"></a>
+                    <a name="//apple_ref/swift/Property/borderWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17OKAlertController17OKAlertController11borderWidthV12CoreGraphics7CGFloat">borderWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/set alert window border line width.
+The default and minimum value is 0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderWidth</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17OKAlertController17OKAlertController4showFT14fromControllerCSo16UIViewController8animatedSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/show(fromController:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17OKAlertController17OKAlertController4showFT14fromControllerCSo16UIViewController8animatedSb_T_">show(fromController:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show/present alert controller.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this function need to set all required parameters, e.g. setup controller.</p>
+
+</div>
+
+<p><li><p>Parameters:</p></p>
+
+<p><ul>
+<li>fromController: Presenter view controller for the alert.</li>
+<li>animated: Animating flag for presenting.</li>
+</ul></li></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">show</span><span class="p">(</span><span class="n">fromController</span> <span class="nv">from</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Presenter view controller for the alert.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Animating flag for presenting.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17OKAlertController17OKAlertController9addActionFTGSqSS_5styleOSC18UIAlertActionStyle7handlerGSqFCSo13UIAlertActionT___T_"></a>
+                    <a name="//apple_ref/swift/Method/addAction(_:style:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17OKAlertController17OKAlertController9addActionFTGSqSS_5styleOSC18UIAlertActionStyle7handlerGSqFCSo13UIAlertActionT___T_">addAction(_:style:handler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add alert action.</p>
+
+<ul>
+<li><p>Parameters:</p>
+
+<ul>
+<li>title: The title string of the action.</li>
+<li>style: Action style. Look at <code>UIAlertActionStyle</code>.</li>
+<li>handler: Handler to insform outside logic that the action was trigered.</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addAction</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">style</span><span class="p">:</span> <span class="kt">UIAlertActionStyle</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIAlertAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The title string of the action.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>style</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action style. Look at <code>UIAlertActionStyle</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler to insform outside logic that the action was trigered.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17OKAlertController17OKAlertControllercFT5titleGSqSS_7messageGSqSS_14preferredStyleOSC22UIAlertControllerStyle_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(title:message:preferredStyle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17OKAlertController17OKAlertControllercFT5titleGSqSS_7messageGSqSS_14preferredStyleOSC22UIAlertControllerStyle_S0_">init(title:message:preferredStyle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize controller with style and optional title and message.</p>
+
+<p><li><p>Parameters:</p></p>
+
+<p><ul>
+<li>title: Title of the alert controller.</li>
+<li>message: Descriptive text that provides more details about the reason for the alert.</li>
+<li>preferredStyle: The style of the alert controller. Default value is <code>.Alert</code>. For more information look at <code>UIAlertControllerStyle</code>.</li>
+</ul></li>
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>Initialized alert controller.</p></p>
+
+<p></div></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">preferredStyle</span><span class="p">:</span> <span class="kt">UIAlertControllerStyle</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Alert</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Title of the alert controller.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Descriptive text that provides more details about the reason for the alert.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>preferredStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The style of the alert controller. Default value is <code>.Alert</code>. For more information look at <code>UIAlertControllerStyle</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Initialized alert controller.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://www.resident.name" target="_blank" rel="external">Oleh Kulykov</a>. All rights reserved. (Last updated: 2016-06-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
